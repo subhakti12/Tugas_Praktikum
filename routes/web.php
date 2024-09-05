@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/s', function () {
-    return view('welcome');
+    return view ('welcome');
 });
 
 //Rute GET sederhana
