@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Product;
+
 class ProductController extends Controller
 {
     /**
@@ -19,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('create'); // Tampilkan form untuk membuat produk baru
+        return view('master-data.product-master.create-product'); // Tampilkan form untuk membuat produk baru
     }
 
     /**
@@ -27,6 +29,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $validasi_data = $request->validate([
+        'product_name' => 'required|string|max:255',
+        'unit'=> 'required|string|max:50',
+        'type'=> 'required|nullable|max:50',
+        'information'=> 'nullable|string',
+        'qty' => 'required|integer',
+        'producer'=> 'required|string|max:255',
+        ]);
+
+        Product::create($validasi_data);
+        return redirect()->back()->with('success', 'product create successfully');
         // Simpan produk baru
         // Misalnya, validasi dan simpan data ke database
     }

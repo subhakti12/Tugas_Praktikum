@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 // Route untuk halaman utama
-Route::get('/', [ProductController::class, 'home']); // Halaman Home
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route untuk halaman dashboard dengan middleware auth dan verified
 Route::get('/dashboard', function () {
@@ -19,16 +22,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route untuk produk
-Route::prefix('product')->group(function () {
-    Route::get('/', [ProductController::class, 'index']); // Halaman Daftar Produk
-    Route::get('/create', [ProductController::class, 'create']); // Halaman Buat Produk
-    Route::post('/', [ProductController::class, 'store']); // Proses Simpan Produk
-    Route::get('/{id}', [ProductController::class, 'show']); // Halaman Detail Produk
-    Route::get('/{id}/edit', [ProductController::class, 'edit']); // Halaman Edit Produk
-    Route::put('/{id}', [ProductController::class, 'update']); // Proses Update Produk
-    Route::delete('/{id}', [ProductController::class, 'destroy']); // Proses Hapus Produk
-});
+//route untuk menambahkan product
+Route::get('/product/create', [ProductController::class, 'create'])->name("product-create");
+Route::post('/product', [ProductController::class, 'store'])->name("product-store");
+
+// Route untuk menambahkan supplier
+Route::get('/supplier/create', [SupplierController::class, 'create'])->name('supplier-create');
+Route::post('/supplier', [SupplierController::class, 'store'])->name('supplier-store');
 
 // Route untuk halaman aplikasi
 Route::get('/app', [ProductController::class, 'app']); // Halaman Aplikasi
