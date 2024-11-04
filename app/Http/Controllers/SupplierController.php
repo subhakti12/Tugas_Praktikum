@@ -29,6 +29,6 @@ class SupplierController extends Controller
         ]);
 
         Supplier::create($validasi_data);
-        return redirect()->back()->with('success', 'Supplier created successfully');
+        return redirect('/dashboard')->with('success', 'Product update successfully!');
     }
 }

@@ -20,17 +20,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
 });
 
 //route untuk menambahkan product
+Route::get('/product', [ProductController::class, 'index'])->name("index-product");
 Route::get('/product/create', [ProductController::class, 'create'])->name("product-create");
 Route::post('/product', [ProductController::class, 'store'])->name("product-store");
+Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name("product-edit");
+Route::put('/product/{id}', [ProductController::class, 'update'])->name("product-update");
+Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-delete');
+
+
 
 // Route untuk menambahkan supplier
 Route::get('/supplier/create', [SupplierController::class, 'create'])->name('supplier-create');
 Route::post('/supplier', [SupplierController::class, 'store'])->name('supplier-store');
 
 // Route untuk halaman aplikasi
-Route::get('/app', [ProductController::class, 'app']); // Halaman Aplikasi
+Route::get('/app', [ProductController::class, 'app']); 
 
 require __DIR__.'/auth.php';
