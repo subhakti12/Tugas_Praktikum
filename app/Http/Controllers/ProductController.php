@@ -91,7 +91,7 @@ class ProductController extends Controller
             'producer' => $request->producer,
         ]);
     
-        return redirect()->route('dashboard')->with('success', 'Product updated successfully!');
+        return redirect()->route('dashboard')->with('success', 'Product berhasil diubah');
     }
 
     /**
@@ -100,9 +100,13 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         $product = Product::findOrFail($id);
-        $product->delete();
+        if ($product){
+            $product->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Product deleted successfully.');
+            return redirect()->route('dashboard')->with('success', 'Product berhasil dihapus');
+        }
+        return redirect()->route('dashboard')->with('eror', 'tidak berhasil menghapus product');
+        
         // Hapus produk berdasarkan ID
         // Misalnya, cari produk berdasarkan ID dan hapus dari database
     }
