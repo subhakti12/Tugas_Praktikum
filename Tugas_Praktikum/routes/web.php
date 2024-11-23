@@ -32,6 +32,10 @@ Route::put('/product/{id}', [ProductController::class, 'update'])->name("product
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-delete');
 Route::get('/product/export/excel', [ProductController::class, 'exportExcel'])->name("product-export-excel");
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('detail-product');
+//Route::get('/product/view/pdf', [ProductController::class, 'exportPDF'])->name("exportPDF");
+Route::get('/product/export/pdf', [ProductController::class, 'exportPDF'])->name('product-export-pdf');
+
+
 
 // Route untuk menambahkan supplier
 Route::get('/supplier/create', [SupplierController::class, 'create'])->name('supplier-create');

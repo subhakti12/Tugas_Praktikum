@@ -39,6 +39,11 @@
         </button>
       </a>
 
+      <a href="{{ route('product-export-pdf') }}">
+        <button class="px-4 py-2 text-white bg-green-500 border border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 mb-4">
+          Export ke PDF
+        </button>
+      </a>
 
       <table class="min-w-full border border-collapse border-gray-200">
         <thead>
@@ -54,9 +59,11 @@
           </tr>
         </thead>
         <tbody>
-          @forelse ($data as $item)
+          @forelse ($data as $key => $item)
             <tr class="bg-white">
-              <td class="px-4 py-2 border border-gray-200">{{ $loop->iteration }}</td>
+              <td class="px-4 py-2 border border-gray-200">
+                  {{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}
+              </td>
               <td class="px-4 py-2 border border-gray-200">
                 <a href="{{ route('detail-product', ['id' => $item->id]) }}">
                     {{ $item->product_name }}
