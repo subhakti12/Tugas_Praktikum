@@ -15,12 +15,12 @@
 
             <div class="mt-4">
                 <h3 class="mb-4 text-2xl font-semibold">{{ $product->product_name }}</h3>
-                <p><strong>ID:</strong> {{ $product->id }}</p>
-                <p><strong>Unit:</strong> {{ $product->unit }}</p>
-                <p><strong>Type:</strong> {{ $product->type }}</p>
-                <p><strong>Information:</strong> {{ $product->information }}</p>
-                <p><strong>Quantity:</strong> {{ $product->qty }}</p>
-                <p><strong>Producer:</strong> {{ $product->producer }}</p>
+                <p><strong>ID :</strong> {{ $product->id }}</p>
+                <p><strong>Unit :</strong> {{ $product->unit }}</p>
+                <p><strong>Type :</strong> {{ $product->type }}</p>
+                <p><strong>Information :</strong> {{ $product->information }}</p>
+                <p><strong>Quantity :</strong> {{ $product->qty }}</p>
+                <p><strong>Producer :</strong> {{ $product->producer }}</p>
             </div>
         </div>
     </div>

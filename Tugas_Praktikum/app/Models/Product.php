@@ -17,4 +17,8 @@ class Product extends Model
         'qty',
         'producer',
     ];
+    public function suppliers()
+    {
+        return $this->belongsTo(supplier::class);
+    }
 }

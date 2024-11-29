@@ -14,10 +14,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Product::query();
-        // Cek apakah ada parameter 'search' di request
+        $query = Product::with('suppliers');
         if ($request->has('search') && $request->search != '') {
-            // Melakukan pencarian berdasarkan nama produk atau informasi
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('product_name', 'like', '%' . $search . '%');
@@ -25,7 +23,9 @@ class ProductController extends Controller
         }
 
 
-        $data = $query->paginate(10);
+        $data = $query->paginate(5);
+
+        //return $data;
         return view("master-data.product-master.index-product", compact('data')); // Mengarahkan ke product.blade.php
     }
 

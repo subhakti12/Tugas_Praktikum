@@ -73,13 +73,13 @@
 <div class="section details">
     <div>
         <p><strong>DITERBITKAN ATAS NAMA</strong></p>
-        <p>Penjual: <strong>Room Soebhakti</strong></p>
+        <p>Penjual : <strong>Room Soebhakti</strong></p>
     </div>
     <div>
         <p><strong>Pesanan Konsumen</strong></p>
-        <p>Pembeli: <strong>M.Subhakti A. Maulana</strong></p>
-        <p>Tanggal Pembelian: <strong>22 November 2024</strong></p>
-        <p>Alamat Pengiriman: <strong>Soebhakti_Moelana</strong> (6285893265952)</p>
+        <p>Pembeli : <strong>M.Subhakti A. Maulana</strong></p>
+        <p>Tanggal Pembelian : <strong>22 November 2024</strong></p>
+        <p>Alamat Pengiriman : <strong>Soebhakti_Moelana</strong> (6285893265952)</p>
         <p>Perumahan Taman Singaperbangsa, Jalan Gurame 1 Blok B3 No.6, Rt19/Rw6, Teluk Jambe Timur (Masjid Jamie Nurul Iman, Warna Abu-Abu), Telukjambe Timur, Kab. Karawang, 41361 Jawa Barat</p>
     </div>
 </div>
